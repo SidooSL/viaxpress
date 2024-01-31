@@ -36,7 +36,7 @@ class DeliveryCarrier(models.Model):
                     "Bultos": picking.number_of_packages,
                     "Reembolso": reembolso,
                     "Fecha": fields.Date.today().strftime("%Y-%m-%dT%H:%M:%S"),
-                    "ConRetorno": False,
+                    "ConRetorno": True,
                     "Debidos": False,
                     "Asegurado": False,
                     "Imprimir": False,

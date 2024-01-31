@@ -22,7 +22,7 @@
     "summary": "Delivery Carrier implementation for ViaXpress",
     "version": "12.0.1.0.0",
     "category": "Stock",
-    "website": "https://sidoo.es/", # PONER EL GITHUB
+    "website": "https://github.com/SidooSL/viaxpress/tree/12.0/delivery_viaxpress",
     "author": "Sidoo",
     "license": "AGPL-3",
     "application": False,
