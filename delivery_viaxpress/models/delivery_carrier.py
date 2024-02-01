@@ -26,7 +26,8 @@ class DeliveryCarrier(models.Model):
             picking.partner_id.commercial_partner_id
         )
 
-        reembolso = picking.sale_id.amount_total
+        con_retorno = False
+        reembolso = picking.sale_id.amount_total if con_retorno else 0.0
 
         request_data = {
             "PutExpedicionInternacional": {
@@ -36,7 +37,8 @@ class DeliveryCarrier(models.Model):
                     "Bultos": picking.number_of_packages,
                     "Reembolso": reembolso,
                     "Fecha": fields.Date.today().strftime("%Y-%m-%dT%H:%M:%S"),
-                    "ConRetorno": True,
+                    "ConRetorno": con_retorno,
+                    "Tipo": "E",
                     "Debidos": False,
                     "Asegurado": False,
                     "Imprimir": False,
@@ -44,6 +46,7 @@ class DeliveryCarrier(models.Model):
                     "Intradia": picking.is_intraday,
                     "Observaciones": picking.note or "",
                     "AlbaranRemitente": picking.name,
+                    "Modo": "A",
                     "TextoAgencia": "",
                     "Terminal": "",
                     "ObjetoLogin": {
