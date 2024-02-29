@@ -49,28 +49,31 @@ class StockPicking(models.Model):
 
     def send_to_shipper(self):
         self.ensure_one()
-        res = self.carrier_id.send_shipping(self)[0]
-        ammount_total = self.sale_id._compute_amount_total_without_delivery()
+        if self.carrier_id.delivery_type == "viaxpress":
+            res = self.carrier_id.send_shipping(self)[0]
+            ammount_total = self.sale_id._compute_amount_total_without_delivery()
 
-        if (self.carrier_id.free_over
-                and self.sale_id
-                and ammount_total >= self.carrier_id.amount):
+            if (self.carrier_id.free_over
+                    and self.sale_id
+                    and ammount_total >= self.carrier_id.amount):
 
-            res['exact_price'] = 0.0
-        self.carrier_price = res['exact_price']
-        if res['tracking_number']:
-            self.carrier_tracking_ref = res['tracking_number']
-        order_currency = self.sale_id.currency_id or self.company_id.currency_id
-        msg = _(
-            "Shipment sent to carrier %s for shipping with tracking number %s<br/>Cost: %.2f %s"
-        ) % (
-            self.carrier_id.name,
-            self.carrier_tracking_ref,
-            self.carrier_price,
-            order_currency.name
-        )
+                res['exact_price'] = 0.0
+            self.carrier_price = res['exact_price']
+            if res['tracking_number']:
+                self.carrier_tracking_ref = res['tracking_number']
+            order_currency = self.sale_id.currency_id or self.company_id.currency_id
+            msg = _(
+                "Shipment sent to carrier %s for shipping with tracking number %s<br/>Cost: %.2f %s"
+            ) % (
+                self.carrier_id.name,
+                self.carrier_tracking_ref,
+                self.carrier_price,
+                order_currency.name
+            )
 
-        att = []
-        att.append(self._viaxpress_get_label(self.viaxpress_public_tracking_ref))
+            att = []
+            att.append(self._viaxpress_get_label(self.viaxpress_public_tracking_ref))
 
-        self.message_post(body=msg, attachments=att)
+            self.message_post(body=msg, attachments=att)
+        else:
+            return super().send_to_shipper()

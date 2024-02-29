@@ -29,7 +29,6 @@
     "application": False,
     "installable": True,
     "depends": [
-        "delivery",
         "delivery_package_number",
         "delivery_state",
         "stock",
