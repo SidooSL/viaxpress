@@ -20,9 +20,9 @@
 {
     "name": "Delivery ViaXpress",
     "summary": "Delivery Carrier implementation for ViaXpress",
-    "version": "16.0.1.0.0",
+    "version": "17.0.1.0.0",
     "category": "Stock",
-    "website": "https://github.com/SidooSL/viaxpress/tree/16.0/delivery_viaxpress",
+    "website": "https://github.com/SidooSL/viaxpress/tree/17.0/delivery_viaxpress",
     "author": "Sidoo S.L.",
     "license": "AGPL-3",
     "images": ['static/description/banner.png'],

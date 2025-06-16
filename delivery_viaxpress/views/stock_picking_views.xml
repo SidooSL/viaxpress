@@ -8,7 +8,7 @@
             <xpath expr="//field[@name='carrier_id']" position="after">
                 <field name="is_allowed_intraday" invisible="1"/>
                 <field name="is_viaxpress_delivery" invisible="1"/>
-                <field name="is_intraday" attrs="{'invisible': ['|', ('is_allowed_intraday', '=', False), ('is_viaxpress_delivery', '=', False)]}" />
+                <field name="is_intraday" invisible="not is_allowed_intraday or not is_viaxpress_delivery" />
             </xpath>
         </field>
     </record>
