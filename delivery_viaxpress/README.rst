@@ -84,7 +84,7 @@ Los errores se registran en `GitHub Issues <https://github.com/SidooSL/viaxpress
 En caso de problemas, por favor revisa
 allí si tu problema ya ha sido reportado. Si lo descubriste primero, ayúdanos a solucionarlo proporcionando una
 descripción detallada y bienvenida.
-`feedback <https://github.com/SidooSL/viaxpress/issues/new?body=module:%20delivery_viaxpress%0Aversion:%2017.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/SidooSL/viaxpress/issues/new?body=module:%20delivery_viaxpress%0Aversion:%2018.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 

@@ -22,8 +22,8 @@
                             <field name="viaxpress_intraday"/>
                         </group>
                         <group name="viaxpress_sync">
-                            <button name="sync_with_viaxpress" string="Sync With ViaXpress" type="object" class="oe_highlight" colspan="2"/>
-                            <field name="viaxpress_last_sync" />
+                            <button name="sync_with_viaxpress" string="Sync With ViaXpress" type="object" class="oe_highlight"/>
+                            <field name="viaxpress_last_sync" invisible="not viaxpress_last_sync"/>
                         </group>
                     </group>
                 </page>
